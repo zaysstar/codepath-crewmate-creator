@@ -8,7 +8,8 @@ This project demonstrates full **CRUD** operations, **React Router** navigation,
 
 ## 🎬 Live Demo
 
-*(Add a GIF of your app in action here!)*
+![Screen_Recording_2025_11_14_014651_V1](https://github.com/user-attachments/assets/2fa51ac9-883b-42bb-98bf-a6916469a739)
+
 
 ---
 
