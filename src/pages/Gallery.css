@@ -1,0 +1,63 @@
+/* src/pages/Gallery.css */
+
+.gallery-grid {
+  display: grid;
+  /* Creates a responsive grid that fits as many cards as it can */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Made cards a bit wider */
+  gap: 1.5rem;
+}
+
+/* Styles for the individual card */
+.crewmate-card {
+  /* Use the floating box style from index.css */
+  background-color: rgba(255, 255, 255, 0.98);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  color: #333;
+  
+  text-decoration: none;
+  overflow: hidden; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* --- NEW FLEXBOX LAYOUT --- */
+  display: flex;
+  justify-content: space-between; /* Pushes info left, image right */
+  align-items: center; /* Vertically centers them */
+  padding: 1rem; /* Add padding to the card itself */
+}
+
+.crewmate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* --- NEW: Styles for the info on the left --- */
+.card-info {
+  flex-grow: 1; /* Allows the info to take up available space */
+  padding-right: 1rem; /* Adds a gap between text and image */
+}
+
+.card-info h3 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+.card-info p {
+  margin: 0.25rem 0;
+}
+
+.card-info .stat {
+  font-weight: bold;
+}
+
+/* --- NEW: Styles for the small image on the right --- */
+.card-image-small {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%; /* Makes it a circle */
+  border: 3px solid #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0; /* Prevents image from shrinking */
+}

@@ -1,0 +1,62 @@
+/* src/Layout.css */
+/* This is the main layout container */
+.App_layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* This is the "gray rectangle" sidebar */
+.sidebar {
+  width: 240px;
+  position: fixed; /* Stays on the left */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #2c2c2e; /* A dark gray */
+  display: flex;
+  align-items: center; /* Vertically centers the nav */
+  justify-content: center; /* Horizontally centers the nav */
+  padding: 1rem;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column; /* Stacks links "top to bottom" */
+  width: 100%;
+}
+
+.sidebar nav a {
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #f0f0f0;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* This style is applied to the active link */
+.sidebar nav a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* This is the main content area where pages are rendered */
+.content {
+  margin-left: 240px; /* Pushes content to the right of the sidebar */
+  padding: 2rem;
+  width: calc(100% - 240px); /* Fills the remaining space */
+
+  /* --- NEW STYLES TO CENTER CONTENT --- */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This will horizontally center your form */
+}

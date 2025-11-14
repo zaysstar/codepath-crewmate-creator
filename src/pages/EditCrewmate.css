@@ -1,0 +1,10 @@
+/* src/pages/EditCrewmate.css */
+
+.delete-button {
+  background-color: #dc3545; /* A strong red color */
+  margin-top: 1rem;
+}
+
+.delete-button:hover {
+  background-color: #c82333; /* A darker red on hover */
+}
