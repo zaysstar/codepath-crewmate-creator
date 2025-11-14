@@ -79,3 +79,114 @@ Make sure you have:
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
+```
+
+## 3. Install Dependencies
+```bash
+npm install
+```
+
+## 4. Set Up Firebase (CRITICAL)
+## This app will NOT run without proper Firebase setup.
+
+### Create a Firebase Project
+Go to the Firebase Console.
+
+Click Add Project → follow the setup steps.
+
+Disable Google Analytics if you want.
+
+### Create Firestore Database
+Go to Build → Firestore Database.
+
+Click Create database.
+
+Choose Test mode.
+
+Pick a server location like us-central.
+
+### Update Security Rules
+Test mode expires in 30 days, so set permanent dev-mode rules:
+
+```firestore
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+```
+
+Click Publish.
+
+## 5. Get Your Config Keys
+Go to Project Settings (gear icon).
+
+In Your Apps, click the Web App (</>) icon.
+
+Register a name for the app.
+
+Copy the generated firebaseConfig.
+
+Create firebaseConfig.js
+Inside src/:
+
+js
+Copy code
+// src/firebaseConfig.js
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSy...",
+  authDomain: "your-project.firebaseapp.com",
+  projectId: "your-project-id",
+  storageBucket: "your-project.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abcd..."
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
+6. Add Crewmate Images
+Your app expects the images to live in:
+
+swift
+Copy code
+public/images/
+Add all 22 crewmate color images, lowercase filenames:
+
+swift
+Copy code
+public/images/red.png
+public/images/blue.png
+public/images/skyblue.png
+public/images/fortegreen.png
+...
+Also include:
+
+swift
+Copy code
+public/images/default.png
+This acts as a fallback.
+
+7. Run the App
+You're all set!
+
+bash
+Copy code
+npm run dev
+Then open:
+
+arduino
+Copy code
+http://localhost:5173
+Enjoy creating your squad of space explorers! 🚀👨‍🚀👩‍🚀
+
+vbnet
+Copy code
+
+Let me know if you want this turned into a README with badges, installation blocks, tables, or anything more polished!
